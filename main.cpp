@@ -4,8 +4,10 @@
 #include <stdio.h>
 #include <tgbot/tgbot.h>
 
+
+
 int main() {
-    TgBot::Bot bot("PLACE YOUR TOKEN HERE");
+    TgBot::Bot bot("PLACE YOUR TOKEN");
     bot.getEvents().onCommand("start", [&bot](TgBot::Message::Ptr message) {
         bot.getApi().sendMessage(message->chat->id, "Hi!");
     });
