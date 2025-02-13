@@ -1,5 +1,6 @@
 //Данный бот использует библиотеку tgBot.cpp
 // Инструкция по установке: https://github.com/reo7sp/tgbot-cpp 
+// Инструкция по библиотеке: http://reo7sp.github.io/tgbot-cpp/
 #include <stdio.h>
 #include <tgbot/tgbot.h>
 
