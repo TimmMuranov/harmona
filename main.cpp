@@ -7,12 +7,11 @@ int main() {
     note n;
     n.octave = 5;
     n.name = 'c';
-    n.sign = '~';
 
     //n.changeNote(-1);
 
     std::cout << "октава: " << n.octave << std::endl;
     std::cout << "нота: " << n.name << std::endl;
-    std::cout << "Высота: " << n.getHeight('g') << std::endl;
+    std::cout << "Высота в тональности " << 'g' << ": " << n.getTone('g') << std::endl;
     return 0;
 }
