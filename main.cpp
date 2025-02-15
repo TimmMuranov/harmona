@@ -1,8 +1,9 @@
 #include <iostream>
 #include "core/core.h"
 int main() {
+//------------- Тест ноты ----------------------------
+    std::cout << "Тест ноты начинается: \n";
     Note n;
-    Key k;
     n.octave = 5;
     n.name = 'd';
 
@@ -11,5 +12,13 @@ int main() {
 
     std::cout << "октава: " << n.octave << std::endl;
     std::cout << "нота: " << n.name << std::endl;
+//------------- Тест тональности ----------------------
+    std::cout << "Тест тональности начинается: \n";
+    Key k;
+    k.sign = "";
+    std::cout << k.getName() << std::endl;
+    std::cout << k.getTone(n) << std::endl;
+    k.changeName('B');
+    std::cout << k.getTone(n) << std::endl;
     return 0;
 }
