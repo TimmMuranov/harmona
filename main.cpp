@@ -17,8 +17,8 @@ int main() {
     Key k;
     k.sign = "";
     std::cout << k.getName() << std::endl;
-    std::cout << k.getTone(n) << std::endl;
+    std::cout << k.getTone(n)[0] << " знак " << k.getTone(n)[1] << std::endl;
     k.changeName('B');
-    std::cout << k.getTone(n) << std::endl;
+    std::cout << k.getTone(n)[0] << " знак " << k.getTone(n)[1] << std::endl;
     return 0;
 }

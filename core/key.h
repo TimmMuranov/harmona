@@ -1,6 +1,7 @@
 #pragma once
 #include "note.h"
 #include <string>
+#include <array>
 
 /*
 Данный объект представляет собой тональность. 
@@ -8,11 +9,11 @@
 
 getName() - Возвращает текущее имя тональности
 сhangeName(char newName) - Изменяет тональность
-getTone(Note note) - Выводит, на какой ступени тональности эта нота
+getTone(Note note) - Выводит массив. Первый элемент - ступень в тональности, второй - альтерация
 */
 
 struct Key {
-    char name = 'C';   // aA,bB,cC,dD,eE,fF,gG (ascii A = 65, B = 66, a = 97, b = 98 и тд.)
+    char name = 'c';   // aA,bB,cC,dD,eE,fF,gG (ascii A = 65, B = 66, a = 97, b = 98 и тд.)
     std::string sign;   // "is" - диез, "es" - бемоль
 
     bool dur[7] = {1, 1, 0, 1, 1, 1, 0};
@@ -25,8 +26,9 @@ struct Key {
         name = newName;
     }
 
-    int getTone(Note note){
+    std::array<int, 2> getTone(Note note){
         int result = 0;
+        int sign = 0; // 0 - нет знака, 1 - диез, -1 - бемоль
         int note_h = note.name - 96;
         int ton_h = (name <= 71) ? (name + 32) : name;
 
@@ -36,6 +38,12 @@ struct Key {
                 ton_h = 97;
             }
         }
-        return 7 - (ton_h - 96);
+        result = 7 - (ton_h - 96);
+        if(name > 71){
+
+        } else {
+
+        }
+        return {result, sign};
     }
 };
