@@ -11,7 +11,7 @@ getName() - Возвращает текущее имя тональности
 getTone(Note note) - Выводит, на какой ступени тональности эта нота
 */
 
-struct Key:Note {
+struct Key {
     char name = 'C';   // aA,bB,cC,dD,eE,fF,gG (ascii A = 65, B = 66, a = 97, b = 98 и тд.)
     std::string sign;   // "is" - диез, "es" - бемоль
 
