@@ -1,5 +1,14 @@
 #pragma once
 
+/*
+Атрибуты: 
+  octave - октава ноты.
+  name - название ноты.
+
+Методы:
+  getTone(char key) - определяет ступень нотыв тональности key
+*/
+
 struct note{
     public:
         int octave;  // 1 - субконтр, 2 - контр, 3 - большая,..
