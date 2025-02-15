@@ -20,6 +20,8 @@ struct note{
             return 7 - (key - 96);
         }
 
+        
+
         void changeNote(int index){
             if(name + index > 103 || name + index < 97){return;}
             name += index;
@@ -29,5 +31,6 @@ struct note{
             if (name + index < 0) {return;}
             octave += index;
         }
-    private:
+
+        void 
 };
