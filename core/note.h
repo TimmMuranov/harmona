@@ -12,5 +12,6 @@
 struct Tone{
     public:
     int frequency;
-    static int camertone = 440;
+    static int camertone = 432; // в этом строю проще, тк он нацело делится на 12
+    static float nextToneKey = 1,0594732; // корень 12 степени из 2
 };
