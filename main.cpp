@@ -1,24 +1,17 @@
 #include <iostream>
-#include "core/core.h"
-int main() {
-//------------- Тест ноты ----------------------------
-    std::cout << "Тест ноты начинается: \n";
-    Note n;
-    n.octave = 5;
-    n.name = 'b';
+#include <cmath> // Для функции round
 
-    std::cout << "октава: " << n.octave << std::endl;
-    std::cout << "нота: " << n.name << std::endl;
-    std::cout << "До следуюшей ноты полутонов " << n.getNextHalfTones() << std::endl;
-//------------- Тест тональности ----------------------
-    std::cout << "Тест тональности начинается: \n";
-    Key k;
-    k.sign = "";
-    k.changeName("d");
-    std::cout << k.getName() << std::endl;
-    std::cout << k.getHeight(n) << std::endl;
-    k.changeName("bis");
-    std::cout << k.getName() << std::endl;
-    std::cout << k.getHeight(n) << std::endl;
+int main() {
+    float t = 880;
+    float c = 1.05947328255896;
+    
+    for (int x = 0; x < 13; ++x) {
+        int t1 = std::round(t); // Округляем до ближайшего целого
+        std::cout << t1 << "   ";
+        std::cout << t << std::endl;
+        
+        t /= c;
+    }
+    
     return 0;
 }
