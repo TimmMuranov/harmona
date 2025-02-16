@@ -12,13 +12,16 @@ int main() {
 
     std::cout << "октава: " << n.octave << std::endl;
     std::cout << "нота: " << n.name << std::endl;
+    std::cout << "До следуюшей ноты полутонов " << n.getNextHalfTones() << std::endl;
 //------------- Тест тональности ----------------------
     std::cout << "Тест тональности начинается: \n";
     Key k;
     k.sign = "";
+    k.changeName("d");
     std::cout << k.getName() << std::endl;
-    std::cout << k.getTone(n)[0] << " знак " << k.getTone(n)[1] << std::endl;
-    k.changeName('B');
-    std::cout << k.getTone(n)[0] << " знак " << k.getTone(n)[1] << std::endl;
+    std::cout << k.getHeight(n) << std::endl;
+    k.changeName("bis");
+    std::cout << k.getName() << std::endl;
+    std::cout << k.getHeight(n) << std::endl;
     return 0;
 }

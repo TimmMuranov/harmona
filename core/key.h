@@ -9,26 +9,38 @@
 
 getName() - Возвращает текущее имя тональности
 сhangeName(char newName) - Изменяет тональность
-getTone(Note note) - Выводит массив. Первый элемент - ступень в тональности, второй - альтерация
+getTone(Note note) - Выводит ступень, на которой расположена данная нота
 */
 
 struct Key {
+    public:
+
     char name = 'c';   // aA,bB,cC,dD,eE,fF,gG (ascii A = 65, B = 66, a = 97, b = 98 и тд.)
     std::string sign;   // "is" - диез, "es" - бемоль
-
-    bool dur[7] = {1, 1, 0, 1, 1, 1, 0};
-    bool mol[7] = {1, 0, 1, 1, 0, 1, 1};
 
     std::string getName(){
         return std::string(1, name) + sign;
     }
-    void changeName(char newName){
-        name = newName;
+    void changeName(std::string newName){
+        if  (!(newName[0] >= 'A' && newName[0] <= 'G') &&
+        !(newName[0] >= 'a' && newName[0] <= 'g')){
+        return;
+        }
+
+        if (newName.length() > 1){
+            std::string suffix = newName.substr(1);
+            if (suffix != "is" && suffix != "es" && suffix != "s"){
+            return;
+            }
+        }
+        name = newName[0]; // Сохранение первой буквы
+        if (newName.length() > 1){
+            sign = newName.substr(1); // Сохранение остального
+        }
     }
 
-    std::array<int, 2> getTone(Note note){
-        int result = 0;
-        int sign = 0; // 0 - нет знака, 1 - диез, -1 - бемоль
+    int getHeight(Note note){
+        int result;
         int note_h = note.name - 96;
         int ton_h = (name <= 71) ? (name + 32) : name;
 
@@ -38,12 +50,14 @@ struct Key {
                 ton_h = 97;
             }
         }
-        result = 7 - (ton_h - 96);
-        if(name > 71){
-
-        } else {
-
-        }
-        return {result, sign};
+        return 8 - (ton_h - 96);
     }
+
+    int getSign(int k){
+    }
+
+    private:
+    bool dur[7] = {1, 1, 0, 1, 1, 1, 0};  // Расстояние между ступенями в мажоре
+    bool mol[7] = {1, 0, 1, 1, 0, 1, 1};  // Расстояние между ступенями в миноре 
+    bool dist[7] = {1, 0, 1, 1, 0, 1, 1}; // Расстояние между нотами (a-b, b-c, c-d,..)
 };
