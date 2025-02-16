@@ -50,10 +50,11 @@ struct Key {
                 ton_h = 97;
             }
         }
-        return 8 - (ton_h - 96);
+        return ton_h - 96;
     }
 
-    int getSign(int k){
+    int getAlteration(Note note){
+        
     }
 
     private:

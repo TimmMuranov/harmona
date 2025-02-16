@@ -5,10 +5,7 @@ int main() {
     std::cout << "Тест ноты начинается: \n";
     Note n;
     n.octave = 5;
-    n.name = 'd';
-
-    n.changeNote(-1);     //  d --> c
-    n.changeOctave(-1);   //  5 --> 4
+    n.name = 'b';
 
     std::cout << "октава: " << n.octave << std::endl;
     std::cout << "нота: " << n.name << std::endl;
